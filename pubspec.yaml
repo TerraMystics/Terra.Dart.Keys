@@ -20,6 +20,11 @@ environment:
 dependencies:
   protobuf_google: ^0.0.1
   terra_dart_sdk_extensions: ^1.0.0
+  bech32: ^0.2.1
+  common_utils: ^2.1.0
+  secp256k1: ^0.3.0
+  bip39: ^1.0.6
+  bip32: ^2.0.0
 
 dev_dependencies:
   lints: ^2.0.0
