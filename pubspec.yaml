@@ -1,6 +1,6 @@
 name: terra_dart_keys
 description: A lightweight key management library for the terra ecosystem
-version: 1.0.1
+version: 1.0.3
 homepage: "https://github.com/TerraMystics"
 repository: "https://github.com/TerraMystics/Terra.Dart.Extensions"
 documentation: "https://docs.terra.money/"
@@ -19,12 +19,16 @@ environment:
 
 dependencies:
   protobuf_google: ^0.0.1
-  terra_dart_sdk_extensions: ^1.0.0
-  bech32: ^0.2.1
+  terra_dart_sdk_extensions: ^1.0.3
+  dart_bech32: ^2.0.0
   common_utils: ^2.1.0
   secp256k1: ^0.3.0
   bip39: ^1.0.6
   bip32: ^2.0.0
+  crypto: ^3.0.2
+  buffer: ^1.2.0
+  ecdsa: ^0.0.4
+  elliptic: ^0.3.8
 
 dev_dependencies:
   lints: ^2.0.0

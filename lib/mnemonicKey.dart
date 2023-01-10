@@ -10,15 +10,14 @@ class MnemonicKey extends RawKey {
   /// </summary>
   /// <param name="mnemonicKey"></param>
   MnemonicKey({String mnemonicKey = "", bool exposePrivateKey = false}) {
-    prepareMnemonic(mnemonicKey, exposePrivateKey);
+    _prepareMnemonic(mnemonicKey, exposePrivateKey);
   }
 
-  void prepareMnemonic(String mnemonicKey, bool exposePrivateKey) async {
-    var mnemonic = BIP39.generateMnemonic(strength: 256);
-
+  void _prepareMnemonic(String mnemonicKey, bool exposePrivateKey) async {
     var seed = !TextUtil.isEmpty(mnemonicKey)
         ? BIP39.mnemonicToSeed(mnemonicKey)
-        : BIP39.mnemonicToSeed(mnemonic);
+        : BIP39.mnemonicToSeed(
+            BIP39.generateMnemonic(strength: 256)); // Random Mnemonic
     var masterKey = BIP32.fromSeed(seed);
     var terraHD = masterKey.derivePath(DerivationPaths.defaultLunaPath);
     var cprivateKey = terraHD.privateKey;

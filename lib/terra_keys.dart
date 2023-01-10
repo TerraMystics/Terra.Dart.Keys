@@ -3,5 +3,6 @@
 /// More dartdocs go here.
 library terra_dart_keys;
 
-
-// TODO: Export any libraries intended for clients of this package.
+export "package:terra_dart_keys/mnemonicKey.dart";
+export "package:terra_dart_keys/cliKey.dart";
+export "package:terra_dart_keys/rawKey.dart";

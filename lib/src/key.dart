@@ -1,10 +1,12 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
-import 'package:bech32/bech32.dart';
+import 'package:dart_bech32/dart_bech32.dart';
 import 'package:secp256k1/secp256k1.dart';
 import 'package:terra_dart_keys/keys/simplePublicKey.dart';
 import 'package:terra_dart_sdk_extensions/dart_extensions.dart';
+
+import '../keys/constants/terraPubKeys.dart';
 
 ///Abstract Key Item
 abstract class Key {
@@ -27,27 +29,26 @@ abstract class Key {
   }
 
   ///Sign the Key
-  Future<List<int>> sign(List<int> payload);
+  Uint8List sign(Uint8List payload);
 
   String accAddress() {
     if (publicKey != null) {
       throw Exception('Could not compute accAddress: missing rawAddress');
     }
 
-    return publicKey.address();
+    return publicKey!.address();
   }
 
   // /**
   //  * Terra validator address. `terravaloper-` prefixed.
   //  */
-  //  get valAddress(): ValAddress {
-  //   if (!this.publicKey) {
-  //     throw new Error('Could not compute valAddress: missing rawAddress');
-  //   }
+  String valAddress() {
+    if (publicKey == null) {
+      throw Exception('Could not compute valAddress: missing rawAddress');
+    }
 
-  //   return bech32.encode(
-  //     Bech32( 'terravaloper',
-  //     bech32.(this.publicKey.rawAddress()))
-  //   );
-  // }
+    return bech32.encode(Decoded(
+        prefix: TerraPubKeys.TERRA_DEV_KEYNAME,
+        words: bech32.toWords(publicKey!.rawAddress())));
+  }
 }
