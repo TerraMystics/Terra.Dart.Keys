@@ -84,6 +84,6 @@ MnemonicKey GenerateMnemonicWithPrivateKey() {
 
 ## License
 
-This software is licensed under the MIT license. See [LICENSE](https://github.com/TerraMystics/Terra.Microsoft.Keys/blob/main/LICENSE) for full disclosure.
+This software is licensed under the MIT license. See [LICENSE](https://github.com/TerraMystics/terra_dart_keys/blob/main/LICENSE) for full disclosure.
 
 © 2022 TerraMystics.
