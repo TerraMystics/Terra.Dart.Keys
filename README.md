@@ -14,13 +14,13 @@ A lightweight key management library for the terra ecosystem
   <img alt="GitHub" src="https://img.shields.io/github/license/terra-money/terra.js">
   </a>
 
-  <a href="https://pub.dev/packages/terra_dart_sdk">
-  <img alt="GitHub" src="https://img.shields.io/pub/v/terra_dart_sdk">
+  <a href="https://pub.dev/packages/terra_dart_keys">
+  <img alt="GitHub" src="https://img.shields.io/pub/v/terra_dart_keys">
   </a>
   
   
-  <a href="https://pub.dev/packages/terra_dart_sdk">
-  <img alt="GitHub" src="https://img.shields.io/pub/likes/terra_dart_sdk?color=red">
+  <a href="https://pub.dev/packages/terra_dart_keys">
+  <img alt="GitHub" src="https://img.shields.io/pub/likes/terra_dart_keys?color=red">
   </a>
 </p>
 
@@ -32,7 +32,7 @@ A lightweight key management library for the terra ecosystem
   ·
   <a href="https://github.com/TerraMystics/terra-dart/blob/main/README.md">API Reference</a>
   ·
-  <a href="https://pub.dev/packages/terra_dart_sdk">Pub Package</a>
+  <a href="https://pub.dev/packages/terra_dart_keys">Pub Package</a>
   ·
   <a href="https://github.com/TerraMystics/terra-dart">GitHub</a>
 </p>
