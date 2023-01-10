@@ -60,19 +60,19 @@ This package can be used for Mobile & Web Developers, or SDK Developers looking 
 ### Generating a Mnemonic Key
 
 ```dart
-MnemonicKey GenerateMnemonic() {
+MnemonicKey generateMnemonic() {
 
   // Create a key out of a mnemonic string (recovery words)
-  string recoveryWords = "notice oak worry limit wrap speak medal online prefer cluster roof addict wrist behave treat actual wasp year salad speed social layer crew genius";
+  String recoveryWords = "notice oak worry limit wrap speak medal online prefer cluster roof addict wrist behave treat actual wasp year salad speed social layer crew genius";
 
   // If creating a random mnemonic, don't pass the recovery words
   return MnemonicKey(recoveryWords);
 }
 
 //ONLY FOR TESTING & DEVELOPMENT PURPOSES: DO NOT EXPOSE PRIVATE KEY, IT COULD RISK EXPOSING THE WALLET FUNDS IF LOST
-MnemonicKey GenerateMnemonicWithPrivateKey() {
+MnemonicKey generateMnemonicWithPrivateKey() {
 
-  string recoveryWords = "notice oak worry limit wrap speak medal online prefer cluster roof addict wrist behave treat actual wasp year salad speed social layer crew genius";
+  String recoveryWords = "notice oak worry limit wrap speak medal online prefer cluster roof addict wrist behave treat actual wasp year salad speed social layer crew genius";
 
   // Create a key out of a mnemonic string (recovery words)
   var mnmonic =  MnemonicKey(recoveryWords, exposePrivateKey: true);
