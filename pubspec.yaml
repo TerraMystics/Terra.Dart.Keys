@@ -1,6 +1,6 @@
 name: terra_dart_keys
 description: A lightweight key management library for the terra ecosystem
-version: 1.0.5
+version: 1.0.6
 homepage: "https://github.com/TerraMystics"
 repository: "https://github.com/TerraMystics/Terra.Dart.Extensions"
 documentation: "https://docs.terra.money/"

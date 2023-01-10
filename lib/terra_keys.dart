@@ -6,3 +6,4 @@ library terra_dart_keys;
 export "package:terra_dart_keys/mnemonicKey.dart";
 export "package:terra_dart_keys/cliKey.dart";
 export "package:terra_dart_keys/rawKey.dart";
+export "package:terra_dart_keys/src/key.dart";
