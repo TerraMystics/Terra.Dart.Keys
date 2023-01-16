@@ -1,4 +1,4 @@
-import 'package:terra_dart_sdk_extensions/dart_extensions.dart';
+import 'package:terra_dart_sdk_extensions/extensions/strings/terraStringExtensions.dart';
 import '../../keys/constants/tendermintKeys.dart';
 
 class PublicKeyExtensions {

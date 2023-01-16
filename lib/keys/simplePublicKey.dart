@@ -1,22 +1,21 @@
-import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:buffer/buffer.dart';
+import 'package:dart_bech32/dart_bech32.dart';
 import 'package:protobuf_google/protobuf_google.dart';
 import 'package:terra_dart_keys/keys/constants/terraPubKeys.dart';
-import 'package:terra_dart_sdk_extensions/dart_extensions.dart';
 import 'package:terra_dart_sdk_extensions/extensions/hash/hashExtensions.dart';
+import 'package:terra_dart_sdk_extensions/extensions/strings/terraStringExtensions.dart';
 import '../src/extensions/publicKeyExtensions.dart';
 import 'constants/cosmosKeys.dart';
 import 'constants/tendermintKeys.dart';
-import 'package:dart_bech32/dart_bech32.dart';
 
 class SimplePublicKey {
-  String? key;
+  Uint8List key;
   SimplePublicKey(this.key);
 
   Any packAny() {
-    return Any(typeUrl: CosmosKeys.SECP256K1_SIMP_PUBKEY);
+    return Any(typeUrl: CosmosKeys.SECP256K1_SIMP_PUBKEY, value: key);
   }
 
   //  static SimplePublicKey UnPackAny(Any msgAny)
@@ -45,11 +44,11 @@ class SimplePublicKey {
   }
 
   static SimplePublicKey fromAmino(SimplePublicKeyAminoArgs data) {
-    return SimplePublicKey(data.key);
+    return SimplePublicKey(data.key!);
   }
 
   static SimplePublicKey fromData(SimplePublicKeyDataArgs data) {
-    return SimplePublicKey(data.key);
+    return SimplePublicKey(data.key!);
   }
 
   // static SimplePublicKey fromProto(PubKey data) {
@@ -59,14 +58,17 @@ class SimplePublicKey {
   Uint8List encodeAminoPubkey() {
     var buffer = BytesBuffer();
     buffer.add(PublicKeyExtensions.pubkeyAminoPrefixSecp256k1);
-    buffer.add(TerraStringExtension.getBytesFromBase64(key!));
+    buffer.add(key);
 
     return buffer.toBytes();
   }
 
+  String getPublicKeyAsBase64() {
+    return TerraStringExtension.getBase64FromBytes(key);
+  }
+
   Uint8List rawAddress() {
-    var pubkeyData = base64.decode(key!);
-    return HashExtensions.ripemd160(HashExtensions.getSha256(pubkeyData));
+    return HashExtensions.ripemd160(HashExtensions.getSha256(key));
   }
 
   String address() {
@@ -83,20 +85,20 @@ class SimplePublicKey {
 }
 
 class SimplePublicKeyAminoArgs extends SimplePublicKeyCommonArgs {
-  SimplePublicKeyAminoArgs(String? key) : super(key) {
+  SimplePublicKeyAminoArgs(Uint8List? key) : super(key) {
     type = TendermintKeys.TENDERMINT_SIMPLE_PUBKEY;
   }
 }
 
 class SimplePublicKeyDataArgs extends SimplePublicKeyCommonArgs {
-  SimplePublicKeyDataArgs(String? key) : super(key) {
+  SimplePublicKeyDataArgs(Uint8List? key) : super(key) {
     type = CosmosKeys.SECP256K1_SIMP_PUBKEY;
   }
 }
 
 class SimplePublicKeyCommonArgs {
   String? type;
-  String? key;
+  Uint8List? key;
 
   SimplePublicKeyCommonArgs(this.key);
 }
